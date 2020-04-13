@@ -17,7 +17,8 @@ import javax.annotation.Resource;
 @Slf4j
 public class OrderController {
 
-    public static final String PAYMENT_PROVIDER_URL = "http://localhost:8001/cloud-provider-service";
+//    public static final String PAYMENT_PROVIDER_URL = "http://localhost:8001/cloud-provider-service";
+    public static final String PAYMENT_PROVIDER_URL = "http://CLOUD-PROVIDER-SERVICE/cloud-provider-service";
 
     @Resource
     private RestTemplate restTemplate;
