@@ -3,10 +3,17 @@ package cn.infocore.springcloud.controller;
 import cn.infocore.springcloud.entites.CommonResult;
 import cn.infocore.springcloud.entites.Payment;
 import cn.infocore.springcloud.service.PaymentService;
+import com.netflix.appinfo.InstanceInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * @Author wei.zhang@infocore.cn
@@ -22,6 +29,9 @@ public class PaymentController {
 
     @Value("${server.port}")
     private String serverPort;
+
+    @Resource
+    private DiscoveryClient discoveryClient;
 
     @GetMapping(value = "/payment/get/{id}")
     public CommonResult getPaymentById(@PathVariable("id") Long id) {
@@ -49,5 +59,20 @@ public class PaymentController {
             log.info("创建对象失败");
         }
         return result;
+    }
+
+    @GetMapping(value = "/payment/getServiceInstance")
+    public Object getServiceInstance() {
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PROVIDER-SERVICE");
+        for (ServiceInstance instance : instances) {
+            log.info("instanceId:" + instance.getInstanceId() + "\t" + "host:" + instance.getHost() + "\t" + "port:" + instance.getPort() + "\t" + "url:" + instance.getUri());
+        }
+
+        List<String> services = discoveryClient.getServices();
+        Iterator<String> iterator = services.iterator();
+        while (iterator.hasNext()) {
+            log.info("service" + iterator.next());
+        }
+        return services;
     }
 }
