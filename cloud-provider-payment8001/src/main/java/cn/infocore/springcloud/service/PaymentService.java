@@ -7,9 +7,9 @@ import cn.infocore.springcloud.entites.Payment;
  * @Date 2020/4/11 13:58
  * @Description
  */
-public interface PaymentService {
+    public interface PaymentService {
 
-    public int createPayment(Payment payment);
+        public int createPayment(Payment payment);
 
-    public Payment getPaymentById(Long id);
-}
+        public Payment getPaymentById(Long id);
+    }

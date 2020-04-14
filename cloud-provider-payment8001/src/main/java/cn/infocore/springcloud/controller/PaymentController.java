@@ -30,8 +30,8 @@ public class PaymentController {
     @Value("${server.port}")
     private String serverPort;
 
-    @Resource
-    private DiscoveryClient discoveryClient;
+        @Resource
+        private DiscoveryClient discoveryClient;
 
     @GetMapping(value = "/payment/get/{id}")
     public CommonResult getPaymentById(@PathVariable("id") Long id) {
@@ -71,7 +71,7 @@ public class PaymentController {
         List<String> services = discoveryClient.getServices();
         Iterator<String> iterator = services.iterator();
         while (iterator.hasNext()) {
-            log.info("service" + iterator.next());
+            log.info("service:" + iterator.next());
         }
         return services;
     }
