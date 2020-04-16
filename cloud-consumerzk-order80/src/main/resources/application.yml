@@ -1,0 +1,11 @@
+server:
+  port: 80
+  servlet:
+    context-path: /cloud-consumer-service
+
+spring:
+  application:
+    name: cloud-consumer-service
+  cloud:
+    zookeeper:
+      connect-string: 192.168.13.161:2181
