@@ -45,5 +45,6 @@
             <artifactId>cloud-api-commons</artifactId>
             <version>${project.version}</version>
         </dependency>
+
     </dependencies>
 </project>
