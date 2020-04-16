@@ -1,0 +1,14 @@
+server:
+  port: 80
+  servlet:
+    context-path: /cloud-consumerconsul-service
+
+spring:
+  application:
+    name: cloud-consumerconsul-service
+  cloud:
+    consul:
+      host: 192.168.13.161
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
