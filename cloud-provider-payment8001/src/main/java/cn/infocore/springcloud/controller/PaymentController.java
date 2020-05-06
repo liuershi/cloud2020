@@ -3,7 +3,6 @@ package cn.infocore.springcloud.controller;
 import cn.infocore.springcloud.entites.CommonResult;
 import cn.infocore.springcloud.entites.Payment;
 import cn.infocore.springcloud.service.PaymentService;
-import com.netflix.appinfo.InstanceInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,8 +29,8 @@ public class PaymentController {
     @Value("${server.port}")
     private String serverPort;
 
-        @Resource
-        private DiscoveryClient discoveryClient;
+    @Resource
+    private DiscoveryClient discoveryClient;
 
     @GetMapping(value = "/payment/get/{id}")
     public CommonResult getPaymentById(@PathVariable("id") Long id) {
@@ -74,5 +73,14 @@ public class PaymentController {
             log.info("service:" + iterator.next());
         }
         return services;
+    }
+
+    /**
+     * 测试自定义负载均衡算法
+     * @return
+     */
+    @GetMapping(value = "/payment/getBL")
+    public String getPaymentBL() {
+        return serverPort;
     }
 }
