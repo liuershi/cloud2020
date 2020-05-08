@@ -23,3 +23,13 @@ spring:
 feign:
   hystrix:
     enabled: true #开启hystrix的支持
+
+#Hystrix熔断器检测时间（默认1秒）
+#增加超时时间 ，超过则会出现超时异常
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 2000

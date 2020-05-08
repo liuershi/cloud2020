@@ -34,7 +34,7 @@ public class PaymentServiceImpl implements PaymentService {
      * @return
      */
     @Override
-    // 超过设置的超时时间3秒(value)则去调用paymentInfo_timeoutHandler进行服务降级
+    // 超过设置的超时时间5000毫秒(value)则去调用paymentInfo_timeoutHandler进行服务降级
     // fallbackMethod：超时或异常经常降级服务调用的方法；name：超时异常声明；value：超时的时间阈值，单位为毫秒
     @HystrixCommand(fallbackMethod = "paymentInfo_timeoutHandler", commandProperties = {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")

@@ -14,7 +14,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableEurekaClient // 注册到eureka注册中心
 @EnableFeignClients // 开启openfeign支持
-@EnableHystrix      // 开始客户端hystrix服务
+@EnableHystrix      // 开启客户端hystrix服务
 public class OrderHystrixMain80 {
     public static void main(String[] args) {
         SpringApplication.run(OrderHystrixMain80.class, args);
