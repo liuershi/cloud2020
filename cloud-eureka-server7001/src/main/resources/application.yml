@@ -17,5 +17,5 @@ eureka:
       defaultZone: http://eureka7002.com:7002/eureka # 集群版：相互注册，填其他eureka服务地址
 
 #  server:
-#    enable-self-preservation: false
+#    enable-self-preservation: false # 关闭自我保护机制
 #    eviction-interval-timer-in-ms: 1000 # 清理无效节点的时间间隔（单位毫秒，默认是60*1000）

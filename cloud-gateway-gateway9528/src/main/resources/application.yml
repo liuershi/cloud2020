@@ -1,0 +1,36 @@
+server:
+  port: 9528
+
+eureka:
+  instance:
+    hostname: cloud-gateway-service
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka # 集群版
+spring:
+  application:
+    name: cloud-gateway-service
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 开启动态路由，默认不开启，开启后可根据注册中心上服务名动态选择节点
+      routes:
+        - id: payment_route
+#          uri: http://localhost:8001 #写死，无法动态扩展
+          uri: lb://CLOUD-PROVIDER-SERVICE #动态，根据服务名选取节点，需要注意的是uri的协议为lb，表示启用Gateway的负载均衡功能
+          predicates:
+            - Path=/cloud-provider-service/payment/get/**
+
+        - id: payment_route2
+#          uri: http://localhost:8001
+          uri: lb://CLOUD-PROVIDER-SERVICE
+          predicates:
+            - Path=/cloud-provider-service/payment/getBL
+            - After=2020-08-25T14:36:08.637+08:00[Asia/Shanghai] #在该时间之后的请求才能访问
+#            - Cookie=username, zwzw #使用cookie时，请求必须带上对应的cookie键值对才能访问，通过curl命名测试（curl http://localhost:9528/cloud-provider-service/payment/getBL --cookie username="zwzw"）
+#            - Method=POST
+#            - Header=X-Request-Id, \d+ #必须请求头中含有X-Request-Id属性，且该属性值必须为正数（curl http://localhost:9528/cloud-provider-service/payment/getBL --cookie username="zwzw" -H "X-Request-Id:55"）
+            # 其它断言过滤：https://docs.spring.io/spring-cloud-gateway/docs/2.2.4.RELEASE/reference/html/#gateway-request-predicates-factories

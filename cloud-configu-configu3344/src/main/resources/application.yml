@@ -1,0 +1,24 @@
+server:
+  port: 3344
+
+eureka:
+  instance:
+    hostname: cloud-configu-service
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka # 集群版
+
+spring:
+  application:
+    name: cloud-configu-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/liuershi/springcloud-configu.git # 注意：该属性的设置需要相应修改，例如 git@github.com:liuershi/springcloud-configu.git ==> https://github.com/liuershi/springcloud-configu.git，否则无法访问
+          search-paths:
+            - springcloud-configu
+#      label: master
+          default-label: dev

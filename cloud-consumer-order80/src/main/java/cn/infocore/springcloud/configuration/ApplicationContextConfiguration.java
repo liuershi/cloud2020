@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 public class ApplicationContextConfiguration {
 
     @Bean
-//    @LoadBalanced
+    @LoadBalanced // 集群时使用该注解开始负载均衡算法，根据算法计算调用哪个服务提供者
     public RestTemplate getRestTemplate(){
         return new RestTemplate();
     }

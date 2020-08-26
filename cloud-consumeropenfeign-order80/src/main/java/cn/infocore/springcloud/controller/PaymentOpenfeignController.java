@@ -24,6 +24,11 @@ public class PaymentOpenfeignController {
         return service.getPaymentById(id);
     }
 
+    /**
+     * time out test
+     *      :The default timeout is 1 second
+     * @return
+     */
     @GetMapping(value = "/payment/feign/timeout")
     public String paymentFeignTimeout(){
         return service.paymentFeignTimeout();
