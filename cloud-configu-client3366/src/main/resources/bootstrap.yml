@@ -1,15 +1,15 @@
 server:
-  port: 3355
+  port: 3366
 
 spring:
   application:
     name: cloud-configu-client
   cloud:
     config:
-      label: dev #分支名称
-      name: application #文件名称
-      profile: dev #文件后缀名称 ==== label+name+profile 等同于访问分支为dev下的application-dev配置文件
-      uri: http://localhost:3344 #springcloud config 服务端地址
+      label: dev
+      name: application
+      profile: dev
+      uri: http://localhost:3344
   rabbitmq:
     host: localhost
     username: guest
@@ -23,8 +23,6 @@ eureka:
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka # 集群版
 
-
-#暴露监控端口，手动刷新当github上文件修改时不需要重启服务
 management:
   endpoints:
     web:

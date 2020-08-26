@@ -12,6 +12,11 @@
     <artifactId>cloud-configu-client3355</artifactId>
 
     <dependencies>
+        <!-- bus消息总线，暂只支持RabbitMQ，Kafka -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-config -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

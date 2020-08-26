@@ -22,3 +22,16 @@ spring:
             - springcloud-configu
 #      label: master
           default-label: dev
+  #消息总线整个rabbitMQ配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+#rabbitMQ配置，暴露BUS相关端口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
