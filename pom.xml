@@ -26,6 +26,9 @@
     <module>cloud-configu-configu3344</module>
     <module>cloud-configu-client3355</module>
     <module>cloud-configu-client3366</module>
+      <module>cloud-stream-rabbitmq-provider8801</module>
+      <module>cloud-stream-rabbitmq-consumer8802</module>
+      <module>cloud-stream-rabbitmq-consumer8803</module>
   </modules>
     <!-- packaging pom 总工程-->
   <packaging>pom</packaging>
