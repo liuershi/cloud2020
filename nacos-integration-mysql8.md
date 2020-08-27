@@ -11,7 +11,7 @@
 
 使用nacos时，默认使用内置的derby，切换内置数据库为mysql时，不支持mysql8+版本，启动nacos抛出异常如下（部分）：
 
-![https://s1.ax1x.com/2020/08/27/d40SBR.png]()
+[![d40SBR.png](https://s1.ax1x.com/2020/08/27/d40SBR.png)](https://imgchr.com/i/d40SBR)
 
 
 
