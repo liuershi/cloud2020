@@ -96,7 +96,7 @@ http://localhost:8848/nacos
 
 ## 7.说明
 
-在集群环境，若需要在同一机器上启动多个nacos服务，需要修改启动脚本（`shutdown.sh`），由于此时的项目是我们修改源码后编译的，在编译完成的脚本中新增了以debug模式启动的命令：
+在集群环境，若需要在同一机器上启动多个nacos服务，需要修改启动脚本（`startup.sh`），由于此时的项目是我们修改源码后编译的，在编译完成的脚本中新增了以debug模式启动的命令：
 
 ```sh
 JAVA_OPT="${JAVA_OPT} -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=81000"
