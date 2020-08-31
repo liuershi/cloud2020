@@ -26,17 +26,20 @@
     <module>cloud-configu-configu3344</module>
     <module>cloud-configu-client3355</module>
     <module>cloud-configu-client3366</module>
-      <module>cloud-stream-rabbitmq-provider8801</module>
-      <module>cloud-stream-rabbitmq-consumer8802</module>
-      <module>cloud-stream-rabbitmq-consumer8803</module>
-      <module>cloud-nacos-payment-provider9001</module>
+    <module>cloud-stream-rabbitmq-provider8801</module>
+    <module>cloud-stream-rabbitmq-consumer8802</module>
+    <module>cloud-stream-rabbitmq-consumer8803</module>
+    <module>cloud-nacos-payment-provider9001</module>
     <module>cloud-nacos-payment-provider9002</module>
-      <module>cloud-nacos-order-consumer83</module>
-      <module>cloud-nacos-config-client3377</module>
-      <module>cloud-sentinel-service8401</module>
-      <module>cloud-nacos-order-consumer84</module>
-      <module>cloud-nacos-payment-provider9003</module>
-      <module>cloud-nacos-payment-provider9004</module>
+    <module>cloud-nacos-order-consumer83</module>
+    <module>cloud-nacos-config-client3377</module>
+    <module>cloud-sentinel-service8401</module>
+    <module>cloud-nacos-order-consumer84</module>
+    <module>cloud-nacos-payment-provider9003</module>
+    <module>cloud-nacos-payment-provider9004</module>
+    <module>seata-order-service2001</module>
+    <module>seata-account-service2003</module>
+    <module>seata-storage-service2004</module>
   </modules>
     <!-- packaging pom 总工程-->
   <packaging>pom</packaging>
