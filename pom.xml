@@ -29,6 +29,14 @@
       <module>cloud-stream-rabbitmq-provider8801</module>
       <module>cloud-stream-rabbitmq-consumer8802</module>
       <module>cloud-stream-rabbitmq-consumer8803</module>
+      <module>cloud-nacos-payment-provider9001</module>
+    <module>cloud-nacos-payment-provider9002</module>
+      <module>cloud-nacos-order-consumer83</module>
+      <module>cloud-nacos-config-client3377</module>
+      <module>cloud-sentinel-service8401</module>
+      <module>cloud-nacos-order-consumer84</module>
+      <module>cloud-nacos-payment-provider9003</module>
+      <module>cloud-nacos-payment-provider9004</module>
   </modules>
     <!-- packaging pom 总工程-->
   <packaging>pom</packaging>
@@ -49,6 +57,14 @@
   <!-- 子模块继承之后，提供作用：锁定版本+module不用写groupId和version -->
   <dependencyManagement>
     <dependencies>
+      <!--Spring cloud alibaba 2.1.0.RELEASE-->
+      <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+        <version>2.1.0.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
       <!-- spring-boot 2.2.2 -->
       <dependency>
         <groupId>org.springframework.boot</groupId>

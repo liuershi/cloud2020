@@ -1,0 +1,21 @@
+server:
+  port: 84
+
+spring:
+  application:
+    name: cloud-nacos-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8719
+
+server-url: #微服务消费者将要去访问的微服务提供者地址
+  nacos-user-service: http://cloud-nacos-provider
+#激活sentinel对feign的支持
+feign:
+  sentinel:
+    enabled: true

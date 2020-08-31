@@ -1,14 +1,13 @@
 package cn.infocore.springcloud.service.serviceImpl;
 
-import cn.hutool.core.util.IdUtil;
 import cn.infocore.springcloud.service.PaymentService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -77,7 +76,8 @@ public class PaymentServiceImpl implements PaymentService {
         if (id < 0) {
             throw new RuntimeException("*********id 不能为负数") ;
         }
-        return Thread.currentThread().getName() + "调用成功；服务流水号为：" + IdUtil.simpleUUID();
+//        return Thread.currentThread().getName() + "调用成功；服务流水号为：" + IdUtil.simpleUUID();
+        return Thread.currentThread().getName() + "调用成功；服务流水号为：" + UUID.randomUUID().toString();
     }
     public String paymentCircuitBreaker_fallback(Integer id) {
         return "服务ID:" + id + "现在已经熔断，请稍后重试！！！o(╥﹏╥)o";
